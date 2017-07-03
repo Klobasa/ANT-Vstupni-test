@@ -17,6 +17,8 @@ session:
 
 services:
 	- App\Model\UserManager
+	- App\Forms\ChatFormFactory
+	- App\Model\ChatFormManager
 	- App\Forms\FormFactory
 	- App\Forms\SignInFormFactory
 	- App\Forms\SignUpFormFactory
