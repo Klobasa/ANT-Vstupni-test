@@ -23,6 +23,7 @@ services:
 	- App\Forms\SignInFormFactory
 	- App\Forms\SignUpFormFactory
 	router: App\RouterFactory::createRouter
+	Chat: chatRepository
 
 extensions:
 	console: Kdyby\Console\DI\ConsoleExtension

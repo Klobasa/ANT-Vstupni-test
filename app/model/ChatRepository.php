@@ -1,6 +1,6 @@
 <?php
 
-class chatManager extends Repository {
+class chatRepository extends Repository {
     const TABLE_CHAT = "chat",
         COLUMN_ID = "id",
         COLUMN_TITLE = "title",
@@ -15,9 +15,6 @@ class chatManager extends Repository {
         $list = $this->database->table(self::TABLE_CHAT)
             ->select("*")
             ->order(self::COLUMN_ID);
-        if (count($list) == 0) {
-            return null;
-        }
         return $list;
     }
 

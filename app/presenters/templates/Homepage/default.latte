@@ -1,7 +1,23 @@
 {block content}
     <div class="container">
         <div class="page">
-            <h1>Bootsrap</h1>
+            <h2>Chat</h2>
+            {snippet form}
+            {control projectForm}
+            {/snippet}
+
+            {snippet list}
+            <div class="chat" style="padding: 10px; background-color: #d3d3d3">
+                {if count($chatList) > 0}
+                {foreach $chatList as $chatMessage}
+                    <h4>{$chatMessage->title}</h4>
+                    <div>{$chatMessage->content|escape}</div>
+                {/foreach}
+                {else}
+                <p>V chatu není žádná zpráva</p>
+                {/if}
+            </div>
+            {/snippet}
         </div>
     </div>
 {/block}

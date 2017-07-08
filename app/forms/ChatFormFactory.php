@@ -23,20 +23,22 @@ class ChatFormFactory {
 
     public function create(callable $onSuccess, $id) {
         $form = $this->factory->create();
+        $form->setValues([], true);
         $form->setRenderer(new BootstrapVerticalRenderer);
+        $form->elementPrototype->addAttributes(array("class" => "ajax"));
 
         $form->addHidden("id")
             ->setValue($id);
 
         $form->addText("title", "Nadpis:");
 
-        $form->addText("content","Zpráva:")
+        $form->addTextArea("content","Zpráva:")
             ->setRequired();
 
         $form->addSubmit("send", "Odeslat");
 
         $form->onSuccess[] = function (Form $form, $values) use ($onSuccess) {
-            $this->chatManager->insertChatTable($values->id, $values->title, $values->content);
+            $this->chatFormManager->insertChatTable($values->id, $values->title, $values->content);
             $onSuccess();
         };
         return $form;
