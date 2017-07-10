@@ -30,15 +30,20 @@ class ChatFormFactory {
         $form->addHidden("id")
             ->setValue($id);
 
+        $form->addText("name", "Jméno:");
+        $form->addText("surname", "Příjmení");
+        $form->addEmail("email", "E-mail: *")
+            ->setRequired();
+
         $form->addText("title", "Nadpis:");
 
-        $form->addTextArea("content","Zpráva:")
+        $form->addTextArea("content","Zpráva: *")
             ->setRequired();
 
         $form->addSubmit("send", "Odeslat");
 
         $form->onSuccess[] = function (Form $form, $values) use ($onSuccess) {
-            $this->chatFormManager->insertChatTable($values->id, $values->title, $values->content);
+            $this->chatFormManager->insertChatTable($values);
             $onSuccess();
         };
         return $form;

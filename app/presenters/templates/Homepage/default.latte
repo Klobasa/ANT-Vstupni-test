@@ -1,11 +1,14 @@
 {block content}
     <div class="container">
         <div class="page">
+            <div class="form">
             <h2>Chat</h2>
             {snippet form}
             {control projectForm}
             {/snippet}
+            </div>
 
+            <div class="messages">
             {snippet list}
             <div class="chat" style="padding: 10px; background-color: #d3d3d3">
                 {if count($chatList) > 0}
@@ -18,6 +21,7 @@
                 {/if}
             </div>
             {/snippet}
+            </div>
         </div>
     </div>
 {/block}

@@ -14,7 +14,7 @@ class chatRepository extends Repository {
     public function getChatTable() {
         $list = $this->database->table(self::TABLE_CHAT)
             ->select("*")
-            ->order(self::COLUMN_ID);
+            ->order(self::COLUMN_ID ." DESC");
         return $list;
     }
 

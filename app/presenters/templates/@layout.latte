@@ -39,7 +39,9 @@
 </nav>
 
 {snippet flashes}
-<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+    <div class="container flashMessage">
+        <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">{$flash->message|noescape}</div>
+    </div>
 {/snippet}
 
 {include content}
@@ -48,7 +50,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="{$basePath}/js/nette.ajax.js"></script>
     <script src="{$basePath}/js/jquery.ajaxform.js"></script>
-    <script src="{$basePath}/js/ajax.js"></script>
+
     <script src="{$basePath}/js/nette.init.js"></script>
     <script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
     <script src="{$basePath}/js/main.js"></script>
